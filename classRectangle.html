@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+
+<canvas id="myCanvas" width="1000px" height="600px" style="border:1px solid #d3d3d3;"></canvas>
+
+<script>
+    function Rectangle(length, width) {
+        this.length = length;
+        this.width = width;
+        this.perimeter = function () {
+            return 2 * (length + width);
+        };
+        this.area = function () {
+            return length * width;
+        };
+    }
+
+    function createRetangle(Rectangle) {
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        ctx.moveTo(0, 0);
+        ctx.lineTo(Rectangle.length, 0);
+        ctx.lineTo(Rectangle.length, Rectangle.width);
+        ctx.lineTo(0, Rectangle.width);
+        ctx.lineTo(0, 0);
+        ctx.stroke();
+    }
+
+    let rectangle = new Rectangle(200, 150);
+
+    createRetangle(rectangle);
+    alert("Chu vi hinh chu nhat: " + rectangle.perimeter());
+    alert("Dien tich hinh chu nhat: " + rectangle.area())
+
+</script>
+
+
+</body>
+</html>
